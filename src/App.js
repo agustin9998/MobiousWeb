@@ -1,14 +1,23 @@
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import AppHeader from "./AppHeader.js";
+import MoviesTiles from "./MoviesTiles.js";
+import ShowsTiles from "./ShowsTiles.js";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img ></img>
-        <div className="centeredHeader"><a>Movies</a><a>Tv Shows</a></div>
-      </header>
-
-      
+      <Router>
+        <AppHeader />
+        <Switch>
+          <Route to="/movies">
+            <MoviesTiles />
+          </Route>
+          <Route to="/tvShows">
+            <ShowsTiles />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
